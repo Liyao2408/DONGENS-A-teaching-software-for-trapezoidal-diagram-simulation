@@ -1,0 +1,60 @@
+{
+  "name": "dongens-n26",
+  "version": "1.0.0",
+  "description": "Dongens Semi Integrated N26 (DSI Platform) — 纯前端 PLC 行为仿真器（LAD/SCL 编辑、软 PLC、在线监视）",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "npx --yes http-server -p 8931 -a 127.0.0.1 -o",
+    "start:exe-dev": "electron .",
+    "test": "node test-engine.js && node test-instructions.js && node test-fbinst.js && node test-openbranch.js",
+    "test:all": "node test-engine.js && node test-instructions.js && node test-portal.js && node test-portal-views.js && node test-devices.js && node test-rack.js && node test-props.js && node test-favbar.js && node test-blockheader.js && node test-empty.js && node test-wires.js && node test-tree.js && node test-labels.js && node test-ui.js && node test-pointer.js && node test-v2.js && node test-merge.js && node test-drag.js && node test-drag2.js && node test-anchor.js && node test-live.js && node test-offline.js && node test-simvar.js && node test-fbinst.js && node test-openbranch.js && node test-branch-gap.js && node test-wire-gap.js && node test-timerfix.js && node test-basic-tia.js && node test-sr-coil.js && node test-sr-ui.js && node test-ton-live.js && node test-branch-clear.js && node test-ui-tweak.js && node test-pinbranch.js",
+    "build:dist": "node build-dist.js",
+    "build:exe": "electron-builder --win"
+  },
+  "keywords": [
+    "plc",
+    "ladder-diagram",
+    "lad",
+    "scl",
+    "simulator",
+    "education",
+    "automation",
+    "dongens"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "build": {
+    "appId": "com.dongens.n26",
+    "productName": "Dongens Semi Integrated N26",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "index.html",
+      "css/**/*",
+      "js/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "compression": "maximum",
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0",
+    "ws": "^8.18.0"
+  }
+}

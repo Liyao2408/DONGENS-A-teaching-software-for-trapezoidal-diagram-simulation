@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+shot-*.png
+_test-helper.js
+_t-*.js
+_snap-*.js
+.DS_Store
+Thumbs.db
+
+release/

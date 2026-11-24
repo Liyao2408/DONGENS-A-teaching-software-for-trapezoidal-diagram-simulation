@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="ll2v0Mp7MdsvoJmEcCy2sH">
+<head data-page-node-id="Gg1XMyLr2LEfsqefpmCidB">
+<meta charset="UTF-8" data-page-node-id="CA875UTFliXlTNIdfosq8Q">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="tTBsocHRrjG33CHkls6KpG">
+<title>DSI Platform 仿真教学版 · DONGENS</title>
+<link rel="stylesheet" href="css/tia.css" data-page-node-id="sX4sXWiKItvlbABR4fZYnY">
+</head>
+<body data-page-node-id="ljdIF29toMZ5HFcxoq8Q2V">
+<div id="app" data-page-node-id="BdCE4cWApmstZpQGSSEqtI">
+
+  <!-- 标题栏 -->
+  <div class="titlebar" data-page-node-id="MXO7JNp68sf2QiR0YgwQwz">
+    <span class="logo" data-page-node-id="LSeEcWuBUajVOMaFJCzuo9">DONGENS</span>
+    <span class="doc" id="titleDoc" data-page-node-id="wwqc5qMeOKJMBFhcHU6uqd">DSI Platform 仿真教学版 · Project1</span>
+    <span class="spacer" data-page-node-id="h3wXUvpXRan6Rom2AB7lU1"></span>
+    <span style="font-size:11px;opacity:.75" id="titleMode" data-page-node-id="s1QroH16yOenfi0105kHED">离线</span>
+    <span class="win-btns" data-page-node-id="8tOxRFM0I3oTepKBSosbr8">
+      <div title="最小化" data-page-node-id="BPPiC6yKk75T6vE6FJ9PJF">─</div>
+      <div title="最大化" data-page-node-id="aR2igczKfHRDzMo29I3vkW">☐</div>
+      <div title="关闭" data-page-node-id="7382AvXfrI5WgszalyJjs3">✕</div>
+    </span>
+  </div>
+
+  <!-- 菜单栏 -->
+  <div class="menubar" id="menubar" data-page-node-id="eIMcGHNgfxtycMUxRt6Dhh"></div>
+
+  <!-- 工具栏 -->
+  <div class="toolbar" id="toolbar" data-page-node-id="x0nIsgUiblDzFABUMgbDIT"></div>
+
+  <!-- 主体：左树 / 中工作区 / 右指令面板 -->
+  <div class="main" data-page-node-id="MyDZgVAtjuAndMHMY3oDZ5">
+    <div class="project-tree" data-page-node-id="YNkEs0snXQLBPhZAeAREY3">
+      <div class="panel-head" data-page-node-id="LzrtGF6cbMoOK4EDLVHQQA">项目树</div>
+      <div class="tree-body" id="treeBody" data-page-node-id="deojH0P917gQWcBOytijF5"></div>
+    </div>
+
+    <div class="workspace" data-page-node-id="OLbZGhGcQjOH9psNsCktJM">
+      <div class="tabs" id="tabs" data-page-node-id="xUUgg6FAAlRJUyK6hsqTxz"></div>
+      <div class="editor-area" id="editorArea" data-page-node-id="SwEpCFUvtyjemybiENIqvs"></div>
+
+      <!-- 编辑区 ↔ 巡视窗口 的可拖分界线（悬停出现 ⬍ 光标，按住左键上下拖动调节高度） -->
+      <div class="insp-splitter" id="inspSplitter"
+           title="按住拖动，调节梯形图与巡视窗口的高度（双击复位）" data-page-node-id="89JvM2DCnHW8nJgshJ80bF"></div>
+
+      <div class="inspector" id="inspector" data-page-node-id="SoddouBb2TMfOYXtiksZoE">
+        <div class="inspector-tabs" id="inspectTabs" data-page-node-id="GHK9XAcgNMWneSzhxDoqpV">
+          <div class="itab active" data-it="diag" data-page-node-id="9Eg7tsmt8WQjCVAeDFlVvy">编译结果 / 诊断</div>
+          <div class="itab" data-it="props" data-page-node-id="IOzczYDxWayFOTKRcmBfv8">属性 / 信息</div>
+        </div>
+        <div class="inspector-body" id="inspectBody" style="display:none" data-page-node-id="8lci94VnrQUOAWb5K9dsr8"></div>
+        <div class="inspector-body" id="propBody" style="display:none" data-page-node-id="XGr2BAJYdXfgsIiBOwrLLg"></div>
+      </div>
+    </div>
+
+    <!-- 右侧：指令面板 -->
+    <div class="instr-panel" id="instrPanel" data-page-node-id="GSALJvI7DazARlQtJvY2nJ">
+      <div class="panel-head instr-head" data-page-node-id="a0WFB5ehtFyeEzxmtk5UeO">
+        <span data-page-node-id="8k3KdqlZWQdu0CrwbSnDc6">指令</span>
+        <span class="ip-btns" data-page-node-id="gtCnpADTo8ngvvKuDjKEve">
+          <span class="ip-btn" id="ipCollapse" title="折叠/展开" data-page-node-id="vavzBrchTtOxkuuyrqp6QZ">▤</span>
+          <span class="ip-btn" id="ipPin" title="固定面板" data-page-node-id="35sqa0Abv5qV7iISqINIFR">📌</span>
+          <span class="ip-btn" id="ipClose" title="关闭面板" data-page-node-id="jsmnJKSDAiVuC1hGxas0iw">✕</span>
+        </span>
+      </div>
+      <div class="instr-body" id="instrBody" data-page-node-id="DCB8khn6yHFJAsXiJEGrVP"></div>
+      <div class="instr-rail" data-page-node-id="T2i5uQ3IDd8HALWBlht4qL">
+        <div class="rail-item active" data-rail="cat" title="指令" data-page-node-id="p4y0YD01z7mRSfkkcqnZt1">指令</div>
+        <div class="rail-item" data-rail="test" title="测试" data-page-node-id="sLzhYnhYqFioyYlwDoAjLu">测试</div>
+        <div class="rail-item" data-rail="task" title="任务" data-page-node-id="KRzSVBbsEHIW2HNsAZvFvY">任务</div>
+        <div class="rail-item" data-rail="lib" title="库" data-page-node-id="1dbQIZ9F7ERLFoRrNzw7L6">库</div>
+        <div class="rail-item" data-rail="plugin" title="插件" data-page-node-id="p56YxskC6K9FMycEBHknST">插件</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 状态栏 -->
+  <div class="statusbar" id="statusbar" data-page-node-id="Uny6RgVM0BbIuoPqEVCA1B"></div>
+</div>
+
+<div class="modal-mask" id="modalMask" data-page-node-id="GsAPOEIQnNuOitbzQdNMWr"></div>
+<div class="toast" id="toast" data-page-node-id="YRvZwCt2Q7E2SVYSsifiqc"></div>
+
+<!-- ================= 启动门户 ================= -->
+<div id="portal" data-page-node-id="rTMuqDYfzroCsE9DziMYF4">
+  <!-- 顶部品牌条 -->
+  <div class="portal-brand" data-page-node-id="ZEKfplA0HtUoAWtr8c65Tb">
+    <span class="pb-logo" data-page-node-id="nany1sCz5cTx4Cl6JOTPVv">DONGENS</span>
+    <span class="pb-spacer" data-page-node-id="k9Q7OATPoBf2WNMJug5W2j"></span>
+    <span class="pb-title" data-page-node-id="v4g9KpxzVpGJairCFTPeLk">Totally Integrated Automation<br data-page-node-id="SMpiD9Cqrhhmi5fVTA2sqa"><b data-page-node-id="kG5OxtCKu5eyXf713tGzJ7">PORTAL</b></span>
+  </div>
+
+  <div class="portal-body" data-page-node-id="kIOAbawbhaJdtxYZcJX9Cl">
+    <!-- 左：竖排功能条 -->
+    <div class="portal-rail" data-page-node-id="oDBAmAgaQWiiZh2smb4Yfa">
+      <div class="rail-btn active" id="navOpenProject" data-page-node-id="pH7CptVCFmaVjKrdtJxbdO">
+        <span class="rb-ico" data-page-node-id="hffJVKeLVZGDd2O0UzgWQP">🏠</span><span class="rb-txt" data-page-node-id="4KKPV2a0h8ZFpFihNBZzA6">启动</span>
+      </div>
+      <div class="rail-btn" id="navDevices" data-page-node-id="2agZjmf0PKCsDXDaNfFjyf">
+        <span class="rb-ico" data-page-node-id="wta89fsOsAeFZhPGPGvOfD">🌐</span><span class="rb-txt" data-page-node-id="C31tfqnS9XpzUAtIwU6DIr">设备与网络</span>
+      </div>
+      <div class="rail-btn" id="navPlc" data-page-node-id="S65KkEADnoknUA8WQ3fDfZ">
+        <span class="rb-ico" data-page-node-id="FqwQ38G5wpzIsZJz4I3YbH">🧠</span><span class="rb-txt" data-page-node-id="2WAwtal4VCI4CchIF4mVpR">PLC<br data-page-node-id="WdRrf0NOmFRHNtlpEqy4J9">编程</span>
+      </div>
+      <div class="rail-btn" id="navMotion" data-page-node-id="kSMh7slB7slLo2cGCbNcec">
+        <span class="rb-ico" data-page-node-id="WLCgPRBqRI4WiZx5ehZCCP">⚙</span><span class="rb-txt" data-page-node-id="yBB1ZTGd06cJeW4TeYV29Q">运动控制 &amp;<br data-page-node-id="Ht8Uk2lTMR0e4zlY5chN2R">技术</span>
+      </div>
+      <div class="rail-btn" id="navDrive" data-page-node-id="S7rVqbXQlBGDeGYNKjeGFB">
+        <span class="rb-ico" data-page-node-id="udJlwkW4LNmc2sbgVVQasM">🔧</span><span class="rb-txt" data-page-node-id="Ku5wFPqcrZf6KPBOWpmzvA">驱动<br data-page-node-id="8ZEnx9PyZgpd4aqYclMX7c">参数设置</span>
+      </div>
+      <div class="rail-btn" id="navHmi" data-page-node-id="lifXWdEH8E8zwKARXraejo">
+        <span class="rb-ico" data-page-node-id="IUiMg8c0ohv5EMh94Rl1L6">🖥</span><span class="rb-txt" data-page-node-id="Oi5BiGmYNVSNYW3ZBQBsBk">可视化</span>
+      </div>
+      <div class="rail-btn" id="navOnline" data-page-node-id="wFodbYDyGnUEJg8CgKu4TS">
+        <span class="rb-ico" data-page-node-id="2XL6bMZduaUMzAZGCCAx6a">🔌</span><span class="rb-txt" data-page-node-id="konFXnYTDUk3ogO9FSjriU">在线与诊断</span>
+      </div>
+    </div>
+
+    <!-- 中：动作清单（两套，按视图切换显示） -->
+    <div class="portal-actions" data-page-node-id="7TyNDO2bxABgf5ErSbBlUo">
+      <!-- 默认组：项目相关 -->
+      <div class="pa-group" data-group="project" data-page-node-id="FRegSal1YBIpmygUSqdBNg">
+        <div class="pa-item active" id="actOpenProject" data-page-node-id="xwN4OnCRrHMzVPFcNCIoLU">
+          <span class="dot" data-page-node-id="Bxam0FguHK4TEMYVuQPq9Y"></span>打开现有项目
+        </div>
+        <div class="pa-item" id="actNewProject" data-page-node-id="631CjCKL3eKOda71HkNOhy">
+          <span class="dot" data-page-node-id="3MiaHedmIbbAPl7YuBLZEU"></span>创建新项目
+        </div>
+        <div class="pa-item" id="actMigrate" data-page-node-id="CjtFx5zJdAKoBiqLRXddu4">
+          <span class="dot" data-page-node-id="5qOZsxU3Gh2Btuuszqt8Lo"></span>移植项目
+        </div>
+        <div class="pa-item" id="actClose" data-page-node-id="bsrLJml4FD5eMC4mC1LZ4T">
+          <span class="dot" data-page-node-id="0MVFOAyEeJbrGOJ12h9wD1"></span>关闭项目
+        </div>
+        <div class="pa-gap" data-page-node-id="4XMiRn1si9iuY37ScFREl6"></div>
+        <div class="pa-item" id="navWelcome" data-page-node-id="dBNFOZiXvxap1iqCshhZtb">
+          <span class="dot" data-page-node-id="FzCldb5lAMD3NCB1bY8ovD"></span>欢迎光临
+        </div>
+        <div class="pa-item" id="actFirstSteps" data-page-node-id="aXWhC6sHEVDwLTeTI1RpBs">
+          <span class="dot" data-page-node-id="9Yemn3fPcUD2JSqC4NnUv2"></span>新手上路
+        </div>
+        <div class="pa-flex" data-page-node-id="4t5m57ffAA0ObW8ODRoATl"></div>
+        <div class="pa-item" id="navSoftware" data-page-node-id="YByyvT4JTOcLzzWjg1AHWY">
+          <span class="dot" data-page-node-id="weuLxmkzami0mM57VhA5KI"></span>已安装的软件
+        </div>
+        <div class="pa-item" id="navHelp" data-page-node-id="8VnDDKy5Htmwxwp8upHGEW">
+          <span class="dot" data-page-node-id="IGGs19UhbZ23cYxoKXak3C"></span>帮助
+        </div>
+        <div class="pa-lang" data-page-node-id="4MMIJDCRmkfwrkFUOx7obA">🌐 用户界面语言：简体中文</div>
+      </div>
+
+      <!-- 设备与网络组 -->
+      <div class="pa-group" data-group="devices" style="display:none" data-page-node-id="WhcXq4Wuah8KlvgBjnXUPS">
+        <div class="pa-item active" id="actShowDevices" data-page-node-id="WrlCu0eOjs8bp8ZzZRPG0k">
+          <span class="dot" data-page-node-id="A9JAH3xEl77jeNtfUELlKR"></span>显示所有设备
+        </div>
+        <div class="pa-item" id="actAddDevice" data-page-node-id="50UeYSnXQ2Q1VGJGo7Jjo7">
+          <span class="dot" data-page-node-id="Tue7g8CcA6oqhUruSz3pUP"></span>添加新设备
+        </div>
+        <div class="pa-gap" data-page-node-id="rqHluXddkEtQmtY7TNB18z"></div>
+        <div class="pa-item" id="actConfigureNet" data-page-node-id="jpta7kvUkhqcQtS3BZRQAE">
+          <span class="dot" data-page-node-id="oiJ9YBIBQtEkCodlUMjWII"></span>组态网络
+        </div>
+        <div class="pa-flex" data-page-node-id="LC5CtDEt0HsEQShp9XuO5E"></div>
+        <div class="pa-item" id="devHelp" data-page-node-id="YIjqQvcerHGvN7hvJpyQo0">
+          <span class="dot" data-page-node-id="qMAP9ojQl0lk4h67pFDGXv"></span>帮助
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：多视图容器 -->
+    <div class="portal-right" id="portalRight" data-page-node-id="tCTEkvv2q5l3bXChIFsQtC">
+
+      <!-- ========== 视图 1：打开现有项目 ========== -->
+      <div class="pr-view" data-view="open" data-page-node-id="8q2vXiHboypQytu4YNX1v8">
+        <div class="pr-head" data-page-node-id="fzzoekRd4VTDDAg9v9WFRG">打开现有项目</div>
+
+        <div class="pr-section-title" data-page-node-id="R07Xf1Ph1V7QPejFhBDfHJ">最近使用的</div>
+        <div class="pr-table-wrap" data-page-node-id="hEaBylcoLt3GDknHvV0Gkn">
+          <table class="pr-table" data-page-node-id="UGO6bDocRkiaRQN9mo9hJ2">
+            <thead data-page-node-id="k5fwGY4YxKk3IGk1QUaQiu">
+              <tr data-page-node-id="J0Ft0vqImyqDQGZxX2BQ5c">
+                <th style="width:34px" data-page-node-id="AwTMtPz9IsxoFCk75yuPce"></th>
+                <th style="width:260px" data-page-node-id="0ECH2neHZHsecnBs0C71Xy">项目</th>
+                <th data-page-node-id="im9NfEl9z8wO1j28D1gBBb">路径</th>
+                <th style="width:160px" data-page-node-id="2xVRUVNWVnE8g3RkIBCsUb">上一次更改</th>
+              </tr>
+            </thead>
+            <tbody id="portalTable" data-page-node-id="kbRAztCK2gBpm86NEKxq7H"></tbody>
+          </table>
+        </div>
+
+        <div class="pr-scrollbar" data-page-node-id="7pdCIFyG4aYGPbGtR1R7lg"><span data-page-node-id="XjKWrc7LXFUi1Rq11I7BqY"></span></div>
+
+        <label class="pr-check" data-page-node-id="P3uhs3cvaaCzFX11HUdjn0">
+          <input type="checkbox" id="chkIntegrity" data-page-node-id="3yNbHAb65zK8GhBEM3zdhq"> 激活基本的完整性检查
+        </label>
+
+        <div class="pr-buttons" data-page-node-id="1DfxK3TvTy2FgVwSXlzMYv">
+          <button class="pbtn" id="btnBrowse" data-page-node-id="IFRqRkNE6xixOGocj1mzDD">浏览</button>
+          <button class="pbtn" id="btnDelete" disabled data-page-node-id="olrbdaxbny0aY0JYT8m1VJ">删除</button>
+          <span class="pr-spacer" data-page-node-id="wQpiK1fKf2hGDpYH2RF8u8"></span>
+          <button class="pbtn primary" id="btnOpen" disabled data-page-node-id="2hd2CjhcOCnrtTLNDJDQyK">打开</button>
+        </div>
+      </div>
+
+      <!-- ========== 视图 2：创建新项目 ========== -->
+      <div class="pr-view" data-view="new" style="display:none" data-page-node-id="oxBALsKS9kQKSvROfdrHyo">
+        <div class="pr-head" data-page-node-id="evulzDQECveal8FyYPAgbu">创建新项目</div>
+
+        <div class="pr-form" data-page-node-id="ZQ7pwGE3mBYnzHU1jsyZGz">
+          <div class="pf-row" style="align-items:flex-start" data-page-node-id="0D57nwPCnB56x6XZnIf4GZ">
+            <label class="pf-label" data-page-node-id="uJSQeBbtA3EkeHSyO6tYPJ">项目名称：</label>
+            <input class="pf-input" type="text" id="npName" value="项目1" data-page-node-id="Rn5IcT5RfePgmBIjRAxZxs">
+          </div>
+
+          <div class="pf-row" data-page-node-id="JqKhsCMv8F8HkjgSLbysuV">
+            <label class="pf-label" data-page-node-id="VdRRQzqeEDK0dr1ve0578C">路径：</label>
+            <div class="pf-path-wrap" data-page-node-id="vCaJ9HfIiKTP2mgwLn708U">
+              <input class="pf-input" type="text" id="npPath"
+                value="C:\Users\Administrator\Documents\Automation" data-page-node-id="4xwANhTwlPDnzpp65wdpOZ">
+              <button class="pf-dots" id="npPathBrowse" title="浏览" data-page-node-id="UhMpalcfwks4CjeEcwqfTR">…</button>
+            </div>
+          </div>
+
+          <div class="pf-row" data-page-node-id="vorDfciWc7yXtPdHD2ruj7">
+            <label class="pf-label" data-page-node-id="037HJClDB82rNrP0aCxNRT">版本：</label>
+            <select class="pf-input pf-select" id="npVersion" data-page-node-id="a3dKYt2MNqbnzHPZ3wBvu3">
+              <option data-page-node-id="9ZcX7uECCYF7HPX1KPF4FE">V15.1</option>
+              <option selected data-page-node-id="VaouW85FFiM8o96rFsWyQy">V16</option>
+              <option data-page-node-id="EUvhJ1FKfvD3Y8r0uAy9KK">V17</option>
+              <option data-page-node-id="8NnDmOwE4IlUr3cBvE6zsx">V18</option>
+              <option data-page-node-id="gg0xzLXg8jHeVWd3eB6DIe">V19</option>
+              <option data-page-node-id="BfxWVCwSgiWGzhMfcTkRbX">V20</option>
+            </select>
+          </div>
+
+          <div class="pf-row" data-page-node-id="ffrpdKtpnl5Lt5YDgZewKp">
+            <label class="pf-label" data-page-node-id="D8g5sEenat1yFbI0BvaxNo">作者：</label>
+            <input class="pf-input" type="text" id="npAuthor" value="Administrator" data-page-node-id="4BxaUOVANjiCzsP7RQt0F8">
+          </div>
+
+          <div class="pf-row" style="align-items:flex-start" data-page-node-id="nCGJWztYtTl2mmhF73V0tI">
+            <label class="pf-label" data-page-node-id="u4lWxJYTkfbUiqSDGpDD3Q">注释：</label>
+            <textarea class="pf-input pf-textarea" id="npComment" rows="3"></textarea>
+          </div>
+
+          <div class="pf-note" id="npError" data-page-node-id="6VZNaPNTG1aKd8AsvSTeS3"></div>
+        </div>
+
+        <div class="pr-buttons" data-page-node-id="adNfynqHC56ux5FxPxk2SX">
+          <span class="pr-spacer" data-page-node-id="syuHp7dokQDXfadp4UCd3r"></span>
+          <button class="pbtn primary" id="btnCreateProject" data-page-node-id="h9G8zqE1fOUD7CWcJf8EG2">创建</button>
+        </div>
+      </div>
+
+      <!-- ========== 视图 3：新手上路 ========== -->
+      <div class="pr-view" data-view="firststeps" style="display:none" data-page-node-id="maTUKcPLA2FyIABQxv6dfQ">
+        <div class="pr-head" data-page-node-id="FrQXlVwR49FLCiWhiWQEGj">新手上路</div>
+
+        <div class="fs-intro" id="fsIntro" data-page-node-id="5fYH0TzWZk1kJrBibnGWlz">项目：请先创建或打开一个项目。</div>
+
+        <div class="fs-flow" data-page-node-id="HfmRRk72PmSQPwlSSnuq5v">
+          <div class="fs-start" data-page-node-id="6MrxApA47Uatr6dmAjOYQW">
+            <span class="fs-start-txt" data-page-node-id="EsvCuFTtr68AZLe8CGrQhs">开始</span>
+            <span class="fs-start-ico" data-page-node-id="HFA0efTaH9L9noqsczXAbb">▤</span>
+          </div>
+
+          <div class="fs-steps" data-page-node-id="kObCehv22uLyHWpZBvlCML">
+            <div class="fs-step" data-target="devconfig" data-page-node-id="koV1DmFCb66SC4GzyBEij8">
+              <div class="fs-left" data-page-node-id="WEPFPwcR60JLZ0H4htNQ7P"><span class="fs-ico" data-page-node-id="Cn2hIxQnh2oWXPBMD3twrd">🌐</span>设备与网络</div>
+              <div class="fs-right" data-page-node-id="BWTAUJb7h5ms9wGvCn2kMP">组态设备</div>
+            </div>
+            <div class="fs-step" data-target="blockov" data-page-node-id="T3NxB2vPCPAMWx46RQqRho">
+              <div class="fs-left" data-page-node-id="ig165jZwTZKtadukKsIGCE"><span class="fs-ico" data-page-node-id="a1H90gDxNIihI5vNnaK079">🧠</span>PLC 编程</div>
+              <div class="fs-right" data-page-node-id="bZmfU36Jei2lZOL937ldOG">创建 PLC 程序</div>
+            </div>
+            <div class="fs-step" data-target="motion" data-page-node-id="Bh0WtsBzDSGJhlHWCJPlJQ">
+              <div class="fs-left" data-page-node-id="ePYC4kqweCKiBYDcs7Ue72"><span class="fs-ico" data-page-node-id="ZYg0UWdAoFH4gHbBz4a9gJ">⚙</span>运动控制 &amp; 技术</div>
+              <div class="fs-right" data-page-node-id="YOORtbz0tdAn0CkLj1UW6C">组态工艺对象</div>
+            </div>
+            <div class="fs-step" data-target="drive" data-page-node-id="EZ24NxdueQzoxHmgVrDS6U">
+              <div class="fs-left" data-page-node-id="AZIIMzYcpNt1JYKKP4WaDi"><span class="fs-ico" data-page-node-id="sycTuTQuzIZRM4kjhNksbG">🔧</span>驱动 参数设置</div>
+              <div class="fs-right" data-page-node-id="2UiRZDCvbDRmKdxBDGX4Kq">参数设置驱动</div>
+            </div>
+            <div class="fs-step" data-target="hmi" data-page-node-id="0j2bkBRvHxR5c7hVnJPnTX">
+              <div class="fs-left" data-page-node-id="aCVTS5imE0unDnlCgfIWdK"><span class="fs-ico" data-page-node-id="RJ65RD8cNZm9cfwQHXdAeH">🖥</span>可视化</div>
+              <div class="fs-right" data-page-node-id="SI3bVOKKkosi8yDlmumSrM">组态 HMI 画面</div>
+            </div>
+            <div class="fs-step fs-step-last" data-target="projectview" data-page-node-id="isc62UDJvMEIzaOtg9KUXY">
+              <div class="fs-left" data-page-node-id="C9iYehIvcVyw4iQTMogwRP"><span class="fs-arrow" data-page-node-id="7z5QtcoTlT0FaQXPDLIYlV">▶</span>项目视图</div>
+              <div class="fs-right" data-page-node-id="2QNjL7SdV0WpIgKM8rLJqJ">打开项目视图</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== 视图 4：显示所有设备（设备与网络概览） ========== -->
+      <div class="pr-view" data-view="devices" style="display:none" data-page-node-id="FFSi71tzItGvWJDs2ew3sK">
+        <div class="pr-head" data-page-node-id="42AxA6HbS3wHROEAkFXu11">显示所有设备</div>
+
+        <div class="dev-toolbar" data-page-node-id="gYPrx2HRiHjjKxD8mqPyiY">
+          <span class="pr-spacer" data-page-node-id="uvO0gHSTTffEYDbfj0qk1Q"></span>
+          <div class="dev-viewtabs" data-page-node-id="3PVGVsdqCDYw7CUt5adU4F">
+            <span class="dvt" data-dvt="detail" data-page-node-id="A6vHT0U0EE0ByMRjq0tMQA">详细信息</span>
+            <span class="dvt" data-dvt="list" data-page-node-id="pjCQVbvkGVkIb3oEYtHER2">列表</span>
+            <span class="dvt active" data-dvt="overview" data-page-node-id="ebig6FIYc0AesWt9MPbNWv">缩略图</span>
+          </div>
+        </div>
+
+        <div class="dev-canvas" id="devCanvas" data-page-node-id="SOd4EFTdnMkYspxxnD5fQj">
+          <!-- 空态 -->
+          <div class="dev-empty" id="devEmpty" data-page-node-id="gZvyhYj0jeTiYtesN1Hr3r">
+            <div class="dev-empty-ico" data-page-node-id="fsbqjVyAurEdosP9vY7g0b">🗂</div>
+            <div class="dev-empty-txt" data-page-node-id="0EHxjOvSR1stVNFi5iwGUT">项目中还没有设备。</div>
+            <div class="dev-empty-hint" data-page-node-id="z6Vaz29bAWSaNIgvUfrvrg">点左侧「添加新设备」开始组态。</div>
+          </div>
+
+          <!-- 已添加的设备卡片（动态渲染） -->
+          <div class="dev-cards" id="devCards" data-page-node-id="OBhvYsChqKS5Xc3vh3KwYJ"></div>
+        </div>
+      </div>
+
+      <!-- ========== 视图 5：添加新设备 ========== -->
+      <div class="pr-view" data-view="adddevice" style="display:none" data-page-node-id="pvJKMEcLS4NdQONIDr9Rr0">
+        <div class="pr-head" data-page-node-id="RGIGKe2eOENbt72rUmHYMN">添加新设备</div>
+
+        <div class="ad-body" data-page-node-id="hmrPj9pdY7ICGY3NsPyF77">
+          <!-- 左：设备类别方块 -->
+          <div class="ad-cats" id="adCats" data-page-node-id="AVaqZ2lahl1Iv1PBNvfPID"></div>
+
+          <!-- 中：设备树 -->
+          <div class="ad-tree-wrap" data-page-node-id="jIoRIntBSFygx4fxrTaIo6">
+            <div class="ad-tree" id="adTree" data-page-node-id="2NbVxjxKVDVI8YxRs2yC7P"></div>
+          </div>
+
+          <!-- 右：选中设备详情 -->
+          <div class="ad-detail" data-page-node-id="8HEjNnIn4CD8gKiUriFbnz">
+            <div class="ad-field" data-page-node-id="8s9J8m8WRsUjVnVSqah7gE">
+              <label class="ad-label" data-page-node-id="CAHIvOxAoAXs9BA5iwABLX">设备：</label>
+              <div class="ad-device-box" id="adPreview" data-page-node-id="5nYFzLLRqJDf6x7loBHHoi">
+                <div class="ad-device-img" data-page-node-id="ERpqKaJ7RI0HFPsK9atf3E">▭</div>
+                <div class="ad-device-name" id="adDevName" data-page-node-id="IxwmCUer3oHrMVj4gr4RnD">未选择设备</div>
+              </div>
+            </div>
+
+            <div class="ad-row" data-page-node-id="eLHmc9zh6vCabfdt1ZIAsI">
+              <label class="ad-label" data-page-node-id="ytDxwBWtrO6r6ha8LGzQUp">订货号：</label>
+              <input class="ad-input" type="text" id="adOrderNo" readonly data-page-node-id="v1I7OyWdSXA9mwb0s1LFMB">
+            </div>
+
+            <div class="ad-row" data-page-node-id="2nDhiCmChHwaUjCijgzSxO">
+              <label class="ad-label" data-page-node-id="UWnjX2pniIlIuFcrEeRm6G">版本：</label>
+              <select class="ad-input ad-select" id="adVersion" data-page-node-id="gDUC8ll2Q8AOVj72PJRgQY"></select>
+            </div>
+
+            <div class="ad-row ad-row-top" data-page-node-id="bAGYKKDtZGiJH7c8tiYLHk">
+              <label class="ad-label" data-page-node-id="mWbKjlg4lKxS0f53hkE9Qf">说明：</label>
+              <div class="ad-desc" id="adDesc" data-page-node-id="TCVdiEi11fcPqbbHd7YMWp"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 顶部：设备名称 -->
+        <div class="ad-namebar" data-page-node-id="o3yz7qM5aitRpZBpIRzDM4">
+          <label class="ad-label" data-page-node-id="ysCVNGaggybaKlybThZ3oS">设备名称：</label>
+          <input class="ad-input ad-nameinput" type="text" id="adName" value="PLC_1" data-page-node-id="sCBCrMnI33c6r8EpPzGzia">
+        </div>
+
+        <div class="ad-foot" data-page-node-id="K1bFhKyWPOZdK64Q1lceRZ">
+          <span class="ad-foot-note" id="adFootNote" data-page-node-id="0MkyvRuiKPwuHCwO8QpYNR"></span>
+          <span class="pr-spacer" data-page-node-id="S02auwAqWMOMmoks273YG3"></span>
+          <button class="pbtn primary" id="btnAddDevice" data-page-node-id="gbcKXhgS2vUTXGM4dqAVHW">添加</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="portal-foot" data-page-node-id="qAls0xSV83PO2BA0eJZZBa">
+    <span class="pf-toggle" id="pfProjectView" data-page-node-id="nhJdoaGiZulmPTmDakriWr">▶ 项目视图</span>
+    <span class="pf-sep" data-page-node-id="Xv32AJk98PE2pg42mJ7CNC"></span>
+    <span class="pf-opened" id="pfOpened" data-page-node-id="OTaR82Lwf4uCIHE7vWZvT4">未打开项目</span>
+    <span class="pr-spacer" data-page-node-id="7mej3gPMJNkX7bBWlVJkw7"></span>
+    <span class="pf-note" data-page-node-id="h2ZyUGOjyBgSPtyPsECGrf">DONGENS 仿真教学版</span>
+  </div>
+</div>
+
+<script src="js/plc.js?v=1795095600000"></script>
+<script src="js/instructions.js?v=1795095600000"></script>
+<script src="js/store.js?v=1795095600000"></script>
+<script src="js/tree.js?v=1795095600000"></script>
+<script src="js/draglayer.js?v=1795095600000"></script>
+<script src="js/lad.js?v=1795095600000"></script>
+<script src="js/ladedit.js?v=1795095600000"></script>
+<script src="js/catalog.js?v=1795095600000"></script>
+<script src="js/devicecatalog.js?v=1795095600000"></script>
+<script src="js/racks.js?v=1795095600000"></script>
+<script src="js/propspanel.js?v=1795095600000"></script>
+<script src="js/favbar.js?v=1795095600000"></script>
+<script src="js/blockheader.js?v=1795095600000"></script>
+<script src="js/simpanel.js?v=1795095600000"></script>
+<script src="js/portal.js?v=1795095600000"></script>
+<script src="js/app.js?v=1795095600000"></script>
+</body>
+</html>
+
+
+
+
+
+
+
